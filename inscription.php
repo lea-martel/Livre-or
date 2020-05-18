@@ -3,9 +3,6 @@
 $bdd =  mysqli_connect("localhost", "root", "", "livreor");
 
 
-if (isset($_POST))
-
-
 ?>
 
 <!DOCTYPE html>
@@ -24,26 +21,32 @@ if (isset($_POST))
 
 <body>
     <main>
-    <?php
-    
-    if (isset($_SESSION["login"]))
-    echo "Vous êtes déjà inscrit";
-
-    ?>
         <form action="inscription.php" method="post">
             <h1 class="toptitre"> INSCRIPTION </h1> <br />
             <label class="champs">Login</label>
             <input class="cadre" type="texte" id="login" name="login" placeholder="Entrer votre login"> <br /> <br />
 
             <label class="champs">Mot de passe</label>
-            <input class="cadre" type="password" id="mdp" name="password" placeholder="Entrer le mot de passe"> <br /> <br />
+            <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Entrer le mot de passe"> <br /> <br />
 
             <label class="champs">Confirmation mot de passe</label>
-            <input class="cadre" type="password" id="mdp" name="password" placeholder="Confirmer le mot de passe"> <br /> <br />
+            <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Confirmer le mot de passe"> <br /> <br />
 
-            <input class="button" type="submit" value="CONNEXION" name="connexion"> <br /> <br />
+            <input class="button" type="submit" value="CONNEXION" name="valider"> <br /> <br />
             <p class="connecte">Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous.</a></p>
         </form>
+        
+    <?php
+    if (isset($_POST['valider'])) {
+        echo "vous êtes inscrit";
+    }
+    else
+
+        echo "Connectez vous";
+
+     $login =$_POST['login']; $motdepasse =$_POST['mdp'];
+     $sql = 'INSERT INTO Utilisateurs VALUES("","'.$login.'","'.$motdepasse.'",)'; 
+    ?>
     </main>
     <footer>
         <?php include("includes/footer.php"); ?>
