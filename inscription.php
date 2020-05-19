@@ -38,19 +38,21 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
         </form>
         
     <?php
-    if (empty($_POST['valider'])) {
-        echo "vous êtes inscrit";
-    }
-
-    $login = $_POST['login'];
-    $motdepasse = $_POST['mdp']; 
     
-    $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$motdepasse')";
+    if (isset($_POST['login'] , $_POST['mdp'])) {
+       $login = $_POST['login'];
+       $password = $_POST['mdp'];
+        
+       $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$password')";
+        $query = mysqli_query ($bdd,$requete);
 
-    $query = mysqli_query ($bdd,$requete);
-    header('Location: connexion.php');
+    if ($query == true) {
+
+        header('location:connexion.php');
+    }
+    } 
+    
     ?>
-     </form>
     </main>
     <footer>
         <?php include("includes/footer.php"); ?>
