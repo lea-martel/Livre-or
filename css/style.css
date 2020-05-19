@@ -380,5 +380,81 @@ footer{
 
 /****INSCRIPTION****/
 
+#container-inscription {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+
+}
+
+.form-inscription {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+
+}
+
+.toptitre {
+
+  font-size: 30px;
 
 
+}
+
+.titre {
+
+  font-size: 20px;
+  color: #18AAFE;
+  padding-bottom: 20px;
+  border-bottom: 0.5px solid #C4C3BF;
+
+}
+
+.champs {
+
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 2%;
+
+
+}
+
+.cadre {
+
+  border: 1px solid rgba(24, 170, 254, 0.137);
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgba(56, 56, 94, 0.226);
+  height: 25px;
+  width: 55%;
+  margin-bottom: 6%;
+
+}
+
+.button {
+
+  color:white;
+  background-color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.4s;
+  margin-bottom: 5%;
+}
+
+.button:hover {
+
+  color: white;
+  background-color: #18AAFE;
+
+
+}

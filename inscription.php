@@ -2,7 +2,6 @@
 
 $bdd =  mysqli_connect("localhost", "root", "", "livreor");
 
-
 ?>
 
 <!DOCTYPE html>
@@ -21,36 +20,40 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
 
 <body>
     <main>
-        <form action="inscription.php" method="post">
-            <h1 class="toptitre"> INSCRIPTION </h1> <br />
+    <div id="container-inscription">
+        <form class="form-inscription" action="inscription.php" method="post">
+            <h1 class="toptitre"> INSCRIPTION </h1><br />
+            <h2 class="titre">MUSEUM OF MARSEILLE </h2><br />
             <label class="champs">Login</label>
-            <input class="cadre" type="texte" id="login" name="login" placeholder="Entrer votre login"> <br /> <br />
+            <input class="cadre" type="texte" id="login" name="login" placeholder="Entrer votre login">
 
             <label class="champs">Mot de passe</label>
-            <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Entrer le mot de passe"> <br /> <br />
+            <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Entrer le mot de passe">
 
             <label class="champs">Confirmation mot de passe</label>
-            <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Confirmer le mot de passe"> <br /> <br />
+            <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Confirmer le mot de passe">
 
-            <input class="button" type="submit" value="CONNEXION" name="valider"> <br /> <br />
+            <input class="button" type="submit" value="CONNEXION" name="valider">
             <p class="connecte">Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous.</a></p>
         </form>
         
     <?php
-    if (isset($_POST['valider'])) {
+    if (empty($_POST['valider'])) {
         echo "vous êtes inscrit";
     }
-    else
 
-        echo "Connectez vous";
+    $login = $_POST['login'];
+    $motdepasse = $_POST['mdp']; 
+    
+    $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$motdepasse')";
 
-     $login =$_POST['login']; $motdepasse =$_POST['mdp'];
-     $sql = 'INSERT INTO Utilisateurs VALUES("","'.$login.'","'.$motdepasse.'",)'; 
+    $query = mysqli_query ($bdd,$requete);
+    header('Location: connexion.php');
     ?>
+     </form>
     </main>
     <footer>
         <?php include("includes/footer.php"); ?>
     </footer>
 </body>
-
 </html>
