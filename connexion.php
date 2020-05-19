@@ -57,7 +57,6 @@
               echo '<div id="message">'.'<p>veuillez saisir tous les champs !</p>';
             }
           }
-          mysqli_close($connexion);
         ?>
       </div>
     </main>
