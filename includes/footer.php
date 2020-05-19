@@ -1,7 +1,7 @@
 <footer>
     <div id="footer-container">
       <div id="left-col">
-        <img src="https://i.ibb.co/BfRDpzm/logo-museumofmarseille.png" alt="logo-logo-museumofmarseille" class="logo">
+        <img src="https://i.ibb.co/YckfrNx/logo-museumofmarseille-nb.png" alt="logo-museumofmarseille" class="logo">
         <p id="rights-text">© 2020 created by museum of marseille</p>
       </div>
       <div id="social-media1">

@@ -12,11 +12,22 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <?php include("includes/header.php") ?>
+    <?php include("includes/header.php")?>
     <main>
-
+      <div id="banner-index">
+        <div>
+          <figure id="circle"></figure>
+          <h1 id="title-index">MUSEUM OF MARSEILLE</h1>
+        </div>
+        <div id="presentation-index">
+          <p id="text-index">Vous venez de visiter notre musée... rejoignez notre communauté et partagez votre avis sur votre expérience ou une exposition !</p>
+          <a href="connexion.php"><h2 id="link-index">VOS COMMENTAIRES</h2></a>
+          <a id="link2-index" href="inscription.php">Pas encore inscrit ? Cliquez ici</a>
+        </div>
+      </div>
+     
     </main>
-    <?php include("includes/footer.php") ?>
-
+    <?php include("includes/footer.php")?>
 </body>
 </html>
+
