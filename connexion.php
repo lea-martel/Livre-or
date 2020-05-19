@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +15,27 @@
 <body>
     <?php include("includes/header.php") ?>
     <main>
-
+        
+      <div id="container-connexion">
+        <form action="connexion.php" method="POST" id="form-connexion">
+          <h1 id="form-title">CONNEXION</h1>
+          <h2 id="subtitle-connexion">MUSEUM OF MARSEILLE</h2>
+          <div class="part1-connexion">
+            <label for="nom">login</label>
+            <input type="text" name="login" class="login-connexion"/>
+          </div>
+          <div class="part1-connexion">
+            <label>password</label>
+            <input type="password" name="password" placeholder="Entrer le mot de passe"/>
+          </div>
+          <div>
+            <button id="log-connexion">se connecter</button>
+          </div> 
+         <p id="ins-connexion">Pas encore inscrit ?
+           <a href="inscription.php">Créez votre compte en quelques clics.</a>
+         </p>
+        </form>
+      </div>
     </main>
     <?php include("includes/footer.php");?>
 </body>
