@@ -1,7 +1,4 @@
-<?php 
-    session_start();
-?>
-
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html>
@@ -29,12 +26,40 @@
             <input type="password" name="password" placeholder="Entrer le mot de passe"/>
           </div>
           <div>
-            <button id="log-connexion">se connecter</button>
+            <input type="submit" id="log-connexion" name="submit" value="se connecter"/>
           </div> 
          <p id="ins-connexion">Pas encore inscrit ?
            <a href="inscription.php">Créez votre compte en quelques clics.</a>
          </p>
         </form>
+      </div>
+      <div>
+        <?php 
+          session_start();
+          if (isset($_POST['submit'])){
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+
+            if($login && $password == true){
+              $connect = mysqli_connect("localhost", "root","", "livreor");
+              $requete = "SELECT * FROM utilisateurs WHERE login ='".$_POST['login']."'";
+              $query = mysqli_query($connect, $requete);
+              $rows = mysqli_num_rows($query);
+
+              if($rows==1){
+                $_SESSION['login']=$login;
+                header('location: index.php');
+              }
+              else{
+                echo '<div id="message">'.'<p>password ou login invalide !</p>';
+              }
+            }
+            else{
+              echo '<div id="message">'.'<p>veuillez saisir tous les champs !</p>';
+            }
+          }
+          mysqli_close($connexion);
+        ?>
       </div>
     </main>
     <?php include("includes/footer.php");?>

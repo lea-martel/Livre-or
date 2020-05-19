@@ -1,9 +1,14 @@
-<?php session_start(); ?>
+<?php session_start(); 
+
+if (isset($_POST["deco"])) {
+    session_unset();
+    session_destroy();
+    header('Location:index.php');
+}
+?>
 
 <!DOCTYPE html>
-
 <html>
-
 <head>
     <title>musée guestbook - accueil</title>
     <meta charset="utf-8">
@@ -22,27 +27,21 @@
         <div id="presentation-index">
           <?php
             if(isset($_SESSION['login'])){
-              echo "<h2><Bonjour ".$_SESSION["login"]."</h2>";
-              echo "<p>Vous êtes actuellement connecté. Accédez à votre <a href=\"profil.php\">profil</a></p>";
-              echo "<a href='commentaire.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a>";
-              echo "<form action='index.php' method='post'>
-                      <input class='button-deco'  name='deco' value='Déconnexion' type='submit'/>
+              echo 'BONJOUR @ '.$_SESSION['login'];
+              echo "<p>Vous êtes actuellement connecté.<br/><a href=\"profil.php\">Accédez à votre profil</a></p>
+                    <a href='commentaire.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a><br/>
+                    <form action='index.php' method='post'>
+                      <input class='reg'  name='deco' value='Déconnexion' type='submit'/>
                     </form>";
             }
             else{ 
-              echo "<p id='text-index'>Vous venez de visiter notre musée... rejoignez notre communauté et partagez votre avis sur votre expérience ou une exposition !</p>";
-              echo "<a href='connexion.php'><h2 id='link-index'>VOS COMMENTAIRES</h2></a>";
-              echo "<a href='inscription.php' id='link2-index'>Pas encore inscrit ? Cliquez ici</a>";
+              echo "<p id='text-index'>Vous venez de visiter notre musée... rejoignez notre communauté et partagez votre avis sur votre expérience ou une exposition !</p>
+                    <a href='connexion.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a>
+                    <a href='inscription.php' id='link2-index'>Pas encore inscrit ? Cliquez ici</a>";
             }
-             /* Version sans php
-             <p id="text-index">Vous venez de visiter notre musée... rejoignez notre communauté et partagez votre avis sur votre expérience ou une exposition !</p>
-             <a href="connexion.php"><h2 id="link-index">VOS COMMENTAIRES</h2></a>
-             <a id="link2-index" href="inscription.php">Pas encore inscrit ? Cliquez ici</a>
-             */
-          ?>       
+          ?>
         </div>
       </div>
-     
     </main>
     <?php include("includes/footer.php")?>
 </body>
