@@ -10,9 +10,10 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <?php include("includes/header.php") ?>
+    <header>
+      <?php include("includes/header.php")?>
+    </header>
     <main>
-        
       <div id="container-connexion">
         <form action="connexion.php" method="POST" id="form-connexion">
           <h1 id="form-title">CONNEXION</h1>
@@ -60,6 +61,8 @@
         ?>
       </div>
     </main>
-    <?php include("includes/footer.php");?>
+    <footer>
+      <?php include("includes/footer.php");?>
+    </footer>
 </body>
 </html>

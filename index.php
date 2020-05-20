@@ -17,7 +17,9 @@ if (isset($_POST["deco"])) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <?php include("includes/header.php")?>
+    <header>
+      <?php include("includes/header.php")?>
+    </header>
     <main>
       <div id="banner-index">
         <div>
@@ -43,7 +45,9 @@ if (isset($_POST["deco"])) {
         </div>
       </div>
     </main>
-    <?php include("includes/footer.php")?>
+    <footer>
+      <?php include("includes/footer.php")?>
+    </footer>
 </body>
 </html>
 
