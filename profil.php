@@ -19,40 +19,52 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
 <body>
     <main>
         <div id="container-profil">
-            <form class="form-profil" action="profil.php" method="post">
-                <h1 class="toptitre"> MODIFIER SON LOGIN ET MOT DE PASSE </h1><br />
+            <form id="form-profil" action="profil.php" method="post">
+                <h1 class="toptitre"> MODIFIER LE LOGIN ET MOT DE PASSE </h1><br />
                 <h2 class="titre">MUSEUM OF MARSEILLE </h2><br />
 
-                <label class="champs">Login actuel</label>
-                <input class="cadre" type="texte" id="login" name="login" placeholder="Entrer votre login">
-
                 <label class="champs">Nouveau login</label>
-                <input class="cadre" type="texte" id="login" name="login" placeholder="Entrer votre nouveau login">
+                <input class="cadre" type="texte" id="login" name="pseudo" placeholder="Entrer votre nouveau login">
 
                 <label class="champs">Mot de passe actuel</label>
-                <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Entrer le mot de passe">
+                <input class="cadre" type="password" id="mdp" name="password_a" placeholder="Entrer le mot de passe">
 
                 <label class="champs">Nouveau mot de passe </label>
-                <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Entrer le nouveau de mot de passe">
+                <input class="cadre" type="password" id="mdp" name="password_n" placeholder="Entrer le nouveau de mot de passe">
 
                 <label class="champs">Confirmation du nouveau mot de passe </label>
-                <input class="cadre" type="password" id="mdp" name="mdp" placeholder="Confirmation du mot de passe">
+                <input class="cadre" type="password" id="mdp" name="password_c" placeholder="Confirmation du mot de passe">
 
-                <input class="button" type="submit" value="VALIDER" name="valider">
+                <input class="button" type="submit" value="VALIDER" name="submit">
 
                 <div>
             <form>
             <?php
 
-            if (isset($_POST['submit']))
+            if (isset($_POST['submit'])) {
+                $password_a = $_POST['password_a'];
+                $password_n = $_POST['password_n'];
+                $password_c = $_POST['password_c'];
+                
             
-            $login = mysqli_real_escape_string(htmlspecialchars($_POST['login']));
+                if (isset($_SESSION['pseudo'])) { 
+                $pseudo = $_SESSION['pseudo'];
 
-            if (empty($login)) {
+                $query = mysqli_query($bdd,$requete);
+                $requete = ("SELECT * FROM utilisateurs WHERE login ='{$_SESSION['pseudo']}' AND password='$password_a'");
 
-                echo 'Veuillez remplir tout les champs';
+                
+            if (empty($password_a)) {
+
+                echo "Veuillez saisir votre ancien mot de passe !";
+            
+            } elseif ($password_n != $password_c) {
+
+                echo "Mot de passe différent !";
+            
             }
-
+        }    
+        }
 
 
     ?>
