@@ -1,5 +1,5 @@
 <?php session_start(); 
-$connect = mysqli_connect("localhost", "root", "root", 'livreor');
+$connect = mysqli_connect("localhost", "root", "", 'livreor');
 
 $requete = "SELECT DATE_FORMAT (date, '%d/%m/%Y') FROM commentaires ORDER by date DESC";
 $query = mysqli_query($connect , $requete);
