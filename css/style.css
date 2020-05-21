@@ -475,7 +475,7 @@ footer{
   height: 100px;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 16px;
   margin-top: -100px;
 }
 
@@ -485,12 +485,10 @@ footer{
 /****INSCRIPTION****/
 
 #container-inscription {
-
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 550px;
-
+  height: 600px;
 }
 
 .form-inscription {
@@ -559,9 +557,94 @@ footer{
 
   color: white;
   background-color: #18AAFE;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*** COMMENTAIRE ***/
+#container-com{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 600px;
+}
+
+#subtitle-com{
+  display: flex;
+  text-align: center;
+  background-color: #18AAFE;
+  color: white;
+  font-size: 20px;
+  padding: 20px 10px;
+  z-index: -1;
+}
+
+#title-com{
+  display: flex;
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  z-index: -1;
+}
+
+#container-form{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+#textarea-com{
+  justify-content: center;
+  background-color: white;
+  box-shadow:1px 1px 2px #C0C0C0 inset;
+  border:1px solid gray;
+  margin-top: 5px;
+  padding:4px;
+  width:100%;
+  height: 180px ;
+  font-size: 13px;
+  color: #064F0E;
+}
+#button-com{
+  color: #18AAFE;
+  background-color: white;
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  width: 200px;
+  padding: 10px 0;
+  box-shadow: 0 0 10px rgba(112, 103, 100, 0.3);
+  transition: 0.4s;
+}
+
+#error-com{
+  display: flex;
+  width: 100%;
+  padding: 10px 10px;
+  color: red;
+  text-align: center;
+}
+
+/***COMMENTAIRE RESPONSIVE***/
+@media (max-width: 640px) {
+  #textarea-com{
+    width:80%;
+  }
+  #error-com{
+    width: 90%; 
+    margin-left: 10px;
+  }
+}
+
+/****PROFIL***/
+
+#container-profil {
+
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  background-color: #18AAFE;
 
 
 }
-
-/****LIVRE OR***/
-
