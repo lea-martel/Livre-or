@@ -37,7 +37,6 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
                 <div>
             </form>
             <?php
-
             if (isset($_POST['login'], $_POST['mdp'])) {
                 $login = $_POST['login'];
                 $password = $_POST['mdp'];
@@ -45,11 +44,17 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
                 $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$password')";
                 $query = mysqli_query($bdd, $requete);
 
-                if ($query == true) {
+                if ($login && $password == true) {
 
                     header('location:connexion.php');
                 }
-            }
+                
+                else {
+
+                echo "Veuillez remplir tous les champs";
+
+                 }
+             } 
             ?>
     </main>
     <footer>

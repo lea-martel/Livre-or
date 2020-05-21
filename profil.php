@@ -50,7 +50,7 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
 
             if (empty($login)) {
 
-                echo 'Veuillez compléter tout les champs';
+                echo 'Veuillez remplir tout les champs';
             }
 
 
