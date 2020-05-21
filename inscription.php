@@ -1,5 +1,4 @@
 <?php session_start();
-
 $bdd =  mysqli_connect("localhost", "root", "", "livreor");
 
 ?>
@@ -36,7 +35,6 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
             <input class="button" type="submit" value="CONNEXION" name="valider">
             <p class="connecte">Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous.</a></p>
         </form>
-        
     <?php
     
     if (isset($_POST['login'] , $_POST['mdp'])) {
@@ -44,14 +42,13 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
        $password = $_POST['mdp'];
         
        $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$password')";
-        $query = mysqli_query ($bdd,$requete);
+       $query = mysqli_query ($bdd,$requete);
 
     if ($query == true) {
 
         header('location:connexion.php');
     }
     } 
-    
     ?>
     </main>
     <footer>
