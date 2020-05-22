@@ -10,6 +10,7 @@ body{
   max-width: 1600px;
 }
 
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
  /*** HEADER ***/
  header{
@@ -129,6 +130,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: space-around;
+  position: relative;
   flex-wrap: wrap;
   background-color: white;
   z-index: 1;
@@ -146,6 +148,10 @@ a{
   }
   .menu li{
     display: inline-block;
+    
+  }
+  .menu li a{
+    font-size: 13px;
   }
 }
 
@@ -153,7 +159,9 @@ a{
 /***FOOTER***/
 footer{
   background-color: #f1f1f1;
-  padding:90 0;
+  padding-top:90;
+  border-bottom: 0;
+  width: 100%;
 }
 #footer-container{
   max-width:1300px;
@@ -236,6 +244,15 @@ footer{
 }
 
 /***HEADER + FOOTER RESPONSIVE***/
+@media (max-width: 400px) {
+  .txtb{
+   min-width: 70%;
+  }
+  .btn{
+   min-width: 70%;
+  }
+
+}
 @media (max-width: 640px) {
   nav{
     padding-left: 0;
@@ -261,26 +278,33 @@ footer{
   }
   
   #left-col{
-    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo{
+    margin: 0;
   }
 
   #social-media1{
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
     padding-top: 40px;
     padding-bottom: 20px;
-    margin-left: 30px;
     height: 25px;
-  }
-  .menu li a{
-    font-size: 13px;
+    width: 100%;
+
   }
 
   .reg{
-    width: 80px;
+    width: 85px;
   }
 
   .log{
-    width: 80px;
+    width: 85px;
   }
 }
   @media (min-width: 640px) {
@@ -328,6 +352,25 @@ footer{
   margin-top: 100px;
   margin-left: 50px;
 }
+.circle:after{
+  content:"";
+  width: 250px;
+  height: 250px;
+  margin-left: 2%;
+  margin-top: 2%;
+  position: absolute;
+  border: 1px solid rgba(24, 170, 254, 1);
+  box-sizing: border-box;
+  border-radius: 50%;
+  animation: wave 2s infinite linear;
+  z-index: -1;
+}
+@keyframes wave{
+  to{
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
 
 #presentation-index{
   display: flex;
@@ -356,6 +399,13 @@ footer{
 }
 
 /***INDEX RESPONSIVE***/
+
+@media (max-width: 480px){
+  #title-index{
+    font-size: 24px;
+    width: 110px;
+  }
+}
 @media (max-width: 640px) {
   #banner-index{
    flex-direction: column;
@@ -365,17 +415,23 @@ footer{
    justify-content: space-evenly;
   }
   #title-index{
-    font-size: 40px;
+    font-size: 39px;
     margin-top: -160px;
     margin-left: 80px;
     width: 160px;
   }
   #circle {
     display: block;
-    height: 145px;
-    width: 35%;
+    height: 170px;
+    width: 170px;
     margin-left: 40px;
     margin-top: 30px;
+  }
+  .circle:after{
+    width: 170px;
+    height: 170px;
+    margin-left: 0.5%;
+    margin-top:1% ;
   }
   #presentation-index{
     margin-left: 0;
@@ -385,6 +441,15 @@ footer{
   #text-index{
     width: 70%;
     padding-left: 5px;
+  }
+  
+}
+@media (max-width: 960px) {
+  #banner-index{
+   flex-direction: column;
+  }
+  #presentation-index{
+    width: 100%;
   }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -443,7 +508,7 @@ footer{
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: aqua;
+  background-color: #EBF7FA;
   padding: 10px 10px;
   width: 95%;
 }
@@ -491,72 +556,76 @@ footer{
   height: 600px;
 }
 
-.form-inscription {
-
+#form-inscription {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.08);
-
-}
-
-.toptitre {
-
-  font-size: 30px;
-
-
-}
-
-.titre {
-
-  font-size: 20px;
-  color: #18AAFE;
+  padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: 0.5px solid #C4C3BF;
+  border-radius: 10px;
+  width: 330px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+}
 
+#subtitle-inscription{
+  display: flex;
+  font-size: 18px;
+  color: #18AAFE;
+  width: 90%;
+  height: 40px;
+  justify-content: center;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid #C4C3BF;
 }
 
 .champs {
-
   font-weight: bold;
   font-size: 15px;
   margin-bottom: 2%;
-
-
 }
 
 .cadre {
-
-  border: 1px solid rgba(24, 170, 254, 0.137);
+  border: 1px solid rgba(24, 170, 254, 0.1);
   border-radius: 5px;
-  box-shadow: 2px 2px 2px 2px rgba(56, 56, 94, 0.226);
+  box-shadow: 2px 2px 2px 2px rgba(56, 56, 94, 0.2);
   height: 25px;
   width: 55%;
   margin-bottom: 6%;
-
+  padding-left: 5px;
 }
 
 .button {
-
   color:white;
   background-color: black;
   cursor: pointer;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 15px;
-  font-weight: bold;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 30px 10px;
+  width: 100px;
+  padding: 10px 0;
+  box-shadow: 0 0 10px rgba(112, 103, 100, 0.3);
   transition: 0.4s;
-  margin-bottom: 5%;
 }
 
 .button:hover {
-
   color: white;
-  background-color: #18AAFE;
+  box-shadow: 0 0 20px (112, 103, 100, 0.6);
+  background-color: rgba(24, 170, 254, 1);
+}
+
+#connecte{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 13px;
+  width: 98%;
+}
+
+#connecte a:hover{
+  color: #18AAFE;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*** COMMENTAIRE ***/
@@ -626,6 +695,14 @@ footer{
   text-align: center;
 }
 
+#perso{
+  display: flex;
+  width: 100%;
+  padding: 10px 10px;
+  color: grey;
+  text-align: center;
+}
+
 /***COMMENTAIRE RESPONSIVE***/
 @media (max-width: 640px) {
   #textarea-com{
@@ -635,8 +712,14 @@ footer{
     width: 90%; 
     margin-left: 10px;
   }
+  #perso{
+    width: 90%;
+    font-size: 12px;
+    flex-direction: column;
+    margin-left: 10px;
+   
+  }
 }
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*** LIVRE D'OR ***/
 #title-comment{
@@ -737,6 +820,4 @@ footer{
   
   
 }
-
-
 

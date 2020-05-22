@@ -23,7 +23,7 @@ if (isset($_POST["deco"])) {
     <main>
       <div id="banner-index">
         <div>
-          <figure id="circle"></figure>
+          <figure class="circle" id="circle"></figure>
           <h1 id="title-index">MUSEUM OF MARSEILLE</h1>
         </div>
         <div id="presentation-index">
