@@ -1,6 +1,3 @@
-<?php session_start();
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -38,44 +35,50 @@
                 <input class="button" type="submit" value="VALIDER" name="submit">
 
                 <div>
-                    <form>
-                        <?php
+                </form>
+                        <?php session_start();
 
-                        if (isset($_SESSION['login'])) {
-                            $_Susername = $SESSION['login'];
+                        if (isset($_POST['login'])); {
+                            $username = $_POST['login'];
+                        
+                        if (isset($_POST['submit'])); {
+                            $login = $_POST['login'];
+                            $password_a = $_POST['password_a'];
+                            $password_n = $_POST['password_n'];
+                            $password_c = $_POST['password_c'];
+                        
+                            $bdd =  mysqli_connect("localhost", "root", "", "livreor");
+                            $query = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$username' AND login = '$login'");
+                            $rows = mysqli_num_rows($query);
 
-                            if (isset($_POST['submit'])) {
-                                $password_a = $_POST['password_a'];
-                                $password_n = $_POST['password_n'];
-                                $password_c = $_POST['password_c'];
+                        if ($login && $password_a && $password_n && $password_c == true) {
+                        if (empty($password_a)) {
+                        
+                        if ($rows ==1) {
+                            $new_password = mysqli_query($bdd, "UPDATE utilisateurs SET login='$password_n' WHERE login='$username'");
 
-                                if ($password_a && $password_n && $password_c) {
-                                    $query = mysqli_query($bdd, $requete);
-                                    $bdd =  mysqli_connect("localhost", "root", "", "livreor");
-                                    $query = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$username' AND login = '$password_a'");
+                        }
+                        }
+                       
+                        elseif ($password_n != $password_c) {
 
-                                    if ($rows == 1) {
-                                        $pass = mysqli_query($bdd, "UPDATE utilisateurs SET login='$password_n' WHERE login='$username'");
+                            echo "Mot de passe différent ! ";
+                        }
 
+                        elseif ($password_n == $password_c) {
 
-                                        if (empty($password_a)) {
+                            header('location:connexion.php');
+                        }
+                        
+                        else {
+                            
+                            echo "Veuillez saisir votre ancien mot de passe !";
+                        }
 
-                                            echo "Veuillez saisir votre ancien mot de passe !";
-                                        
-                                        } elseif ($password_n != $password_c) {
-
-                                            echo "Mot de passe différent !";
-                                        } 
-                                        else {
-                                             
-                                            echo header("Location:connexion.php");
-                                        }
-                                      }
-                                    }
-                                   }
-                                   }
-
-
+                    }
+                    }
+                    }
+                   
                         ?>
     </main>
     <?php include("includes/footer.php"); ?>
