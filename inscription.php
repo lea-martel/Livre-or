@@ -1,8 +1,4 @@
-<?php session_start();
-
-$bdd =  mysqli_connect("localhost", "root", "", "livreor");
-
-?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html>
@@ -39,19 +35,25 @@ $bdd =  mysqli_connect("localhost", "root", "", "livreor");
         
     <?php
     
-    if (isset($_POST['login'] , $_POST['mdp'])) {
-       $login = $_POST['login'];
-       $password = $_POST['mdp'];
-        
-       $requete = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$password')";
-        $query = mysqli_query ($bdd,$requete);
+    if (isset($_POST['submit'])){
+        $login =htmlentities(trim($_POST['login']));
+        $password = htmlentities(trim($_POST['password']));
+        $repeatpassword = htmlentities(trim($_POST['repeatmdp']));
 
-    if ($query == true) {
+        if($login&&$password&&$repeatpassword){
+            if($password==$repeatpassword){
 
-        header('location:connexion.php');
+              $connect =  mysqli_connect("localhost", "root", "root", "livreor");
+              $request = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$password')";
+              $query = mysqli_query ($connect,$request);
+
+              header('location:connexion.php');
+
+            }
+            else echo '<p id="message"> les deux champs doivent être identiques </p>';
+        }
+        else echo '<p id="message"> veuillez compléter tous les champs </p>';
     }
-    } 
-    
     ?>
     </main>
     <footer>
