@@ -14,7 +14,9 @@ if (isset($_POST['submit'])){
         $comment = addslashes($com);
         $request2 = "INSERT INTO commentaires (commentaire, id_utilisateur, date) VALUES ('$comment', ".$id[0][0].", NOW())";
         $query2 = mysqli_query($connect, $request2);
-    
+         
+        $c_message = 'merci @ '. $_SESSION['login'] .'! Retrouvez les autres commentaires <a href="livre-or.php">&nbsp; ICI !</a>';
+
         mysqli_close($connect);
     }  
        
@@ -51,6 +53,9 @@ if (isset($_POST['submit'])){
             <input id= "button-com" type="submit" value="poster mon commentaire" name="submit" >
           </form>
           <?php
+            if(isset($c_message)){
+              echo '<div id="perso">'. $c_message .' </div>';
+            }
             if(isset($c_error)){
               echo '<div id="error-com">'.$c_error.'</div>';
             }

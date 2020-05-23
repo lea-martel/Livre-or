@@ -14,12 +14,13 @@ $requete2 = "SELECT login FROM utilisateurs INNER JOIN commentaires ON utilisate
 $query2 = mysqli_query($connect , $requete2);
 $login = mysqli_fetch_all($query2);
 
+/* pas utilisée
 $request = "SELECT DATE_FORMAT (date, '%d/%m/%Y') , utilisateurs.login , commentaires.commentaire FROM utilisateurs INNER JOIN commentaires ON utilisateurs.id = commentaires.id_utilisateur ORDER by date DESC";
 $query3 = mysqli_query($connect , $request);
 $test = mysqli_fetch_all($query3);
+*/
 
 mysqli_close($connect);
-
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +50,7 @@ mysqli_close($connect);
       <div id="container-livreor">
         <div class="box-com">
           <?php
-           foreach($dates as $key => $value){                 //boucle pour faire apparaître la date
+           foreach($dates as $key => $value){                                   //boucle pour faire apparaître la date
               echo '<p class="info-comment">posté le</p>'; 
               foreach ($value as $key2=>$value2){ 
                   echo '<p class="text-com">'.$value2. '</p><br/><br/>';
@@ -60,7 +61,7 @@ mysqli_close($connect);
           <div class="box-com">
             <?php
               foreach($login as $key => $value){ 
-                echo '<p class="info-comment"> par utilisateur</p>';                    //boucle pour faire apparaître l'utilisateur
+                echo '<p class="info-comment"> par utilisateur</p>';               //boucle pour faire apparaître l'utilisateur
                 foreach ($value as $key2=>$value3){
                    echo '<p class="text-com">'.$value3. '</p><br/><br/>';
                 }
@@ -70,7 +71,7 @@ mysqli_close($connect);
         <div id="box-com">
             <?php
               foreach($comment as $key => $value){ 
-                echo '<p class="info-comment">commentaire</p>';                    //boucle pour faire apparaître l'utilisateur
+                echo '<p class="info-comment">commentaire</p>';                    //boucle pour faire apparaître le commentaire
                 foreach ($value as $key2=>$value3){
                    echo '<p class="text-com"</p>'.$value3. '</p><br/><br/>';
                 }
@@ -80,7 +81,8 @@ mysqli_close($connect);
       </div>
     </main>
     <footer>
-    <?php include("includes/footer.php");?>
+      <?php include("includes/footer.php");?>
     </footer>
 </body>
 </html>
+

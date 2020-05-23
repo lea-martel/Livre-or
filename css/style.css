@@ -14,7 +14,8 @@ body{
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
  /*** HEADER ***/
  header{
-  height: 100px; 
+  height: 80px; 
+  padding-top: 10px;
 }
 
 #nav-principal {
@@ -93,25 +94,24 @@ a{
   text-decoration: none;
 }
 
-
 /*menu burger*/
-
 .menu {
   display: none;
   flex-basis: 100%;
   list-style: none;
-  margin-top: 20px;
 }
 
 .menu li a{
   display: inline-block;
-  padding: 5px 10px 5px 10px;
+  padding: 10px 10px 10px 10px;
   letter-spacing: 2.5px;
   font-size: 13px;
 }
+
 .menu-checkbox:checked ~ .menu {
   display: block;
 }
+
 .menu-checkbox{
   opacity: 0;
   position: absolute;
@@ -127,14 +127,12 @@ a{
 }
 
 .nav-wrapper{
-  display: flex;
   align-items: center;
-  justify-content: space-around;
   position: relative;
   flex-wrap: wrap;
   background-color: white;
   z-index: 1;
-
+  margin-top: 10px;
 }
 
 @media screen and (min-width:60em){
@@ -151,10 +149,10 @@ a{
     
   }
   .menu li a{
-    font-size: 13px;
+    font-size: 12px;
   }
+  
 }
-
 
 /***FOOTER***/
 footer{
@@ -163,6 +161,7 @@ footer{
   border-bottom: 0;
   width: 100%;
 }
+
 #footer-container{
   max-width:1300px;
   margin:auto;
@@ -174,6 +173,7 @@ footer{
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .logo{
   width: 100px;
   margin-left: 60px;
@@ -207,12 +207,14 @@ footer{
   margin-bottom: 20px;
   margin-top: 10px;
 }
+
 #newsletter-form{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .txtb{
   flex: 1;
   padding: 18px 40px;
@@ -225,6 +227,7 @@ footer{
   border-radius: 30px;
   min-width: 260px;
 }
+
 .btn{
   padding: 18px 40px;
   font-size: 16px;
@@ -238,6 +241,7 @@ footer{
   cursor: pointer;
   transition: opacity .3s linear;
 }
+
 .btn:hover{
   opacity: .7;
   background-color: rgba(24, 170, 254, 1);
@@ -251,17 +255,16 @@ footer{
   .btn{
    min-width: 70%;
   }
-
 }
 @media (max-width: 640px) {
   nav{
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 0;
   }
 
   #toptitle{
     font-size: 12px;
-    margin-top: 20px;
+    margin-top: -10px;
     margin-left: 30px;
   }
 
@@ -269,6 +272,7 @@ footer{
     display: flex;
     justify-content: space-evenly;
     margin-right: 0;
+    margin-top: 0;
   }
   
   .btn{
@@ -316,12 +320,7 @@ footer{
   }
   
 }
-  @media (min-width:960px) {
-   
-  }
-  @media (min-width:1100px) {
-   
-  }
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*** INDEX ***/
 #banner-index{
@@ -352,6 +351,7 @@ footer{
   margin-top: 100px;
   margin-left: 50px;
 }
+
 .circle:after{
   content:"";
   width: 250px;
@@ -399,7 +399,6 @@ footer{
 }
 
 /***INDEX RESPONSIVE***/
-
 @media (max-width: 480px){
   #title-index{
     font-size: 24px;
@@ -546,11 +545,11 @@ footer{
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
 /****INSCRIPTION****/
 
 #container-inscription {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 600px;
@@ -565,7 +564,7 @@ footer{
   padding-top: 20px;
   padding-bottom: 20px;
   border-radius: 10px;
-  width: 330px;
+  width: 340px;
   box-shadow:0 10px 40px rgba(0,0,0,0.08);
 }
 
@@ -626,6 +625,77 @@ footer{
 
 #connecte a:hover{
   color: #18AAFE;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/****PROFIL****/
+#container-profil{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+  background-color: #18AAFE;
+}
+
+.subtitle-profil{
+  padding-top: 20px;
+}
+
+#form-profil{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 40%;
+}
+
+.champs-profil{
+  color: white;
+  padding-bottom: 10px;
+}
+
+.cadre-profil{
+  width: 60%;
+  height: 30px;
+  border: 1px solid rgba(24, 170, 254, 0.1);
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 6%;
+}
+
+.error{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: red;
+  margin-top: -20px;
+}
+
+/***PROFIL RESPONSIVE***/
+@media (max-width: 640px) {
+  #form-profil{
+    padding-top: 10px;
+  }
+  .cadre-profil{
+    width:120%;
+    margin-bottom: 2%;
+  }
+  .champs-profil{
+    font-size: 13px;
+    padding-top: 20px;
+  }
+  #title-profil{
+    font-size: 22px;
+  }
+  .subtitle-profil{
+    font-size: 16px;
+  }
+  .error{
+    font-size : 13px;
+  }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*** COMMENTAIRE ***/
@@ -778,7 +848,7 @@ footer{
 }
 .text-com{
   overflow: scroll;
-  height: 30px;
+  height: 50px;
 }
 
 #lien{
@@ -795,13 +865,11 @@ footer{
   .box-com{
     font-size: 13px;
     width: 30%;
-    z-index: -1;
   }
 
   #box-com{
     width: 30%;
     font-size: 13px;
-    z-index: -1;
   }
 
   .info-comment{
@@ -817,7 +885,6 @@ footer{
   #title-comment{
     z-index: -1;
   }
-  
-  
+
 }
 
