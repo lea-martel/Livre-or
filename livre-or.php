@@ -33,10 +33,10 @@ mysqli_close($connect);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<head>
-    <?php include("includes/header.php"); ?>
-</head>
 <body>
+    <header>
+      <?php include("includes/header.php"); ?>
+    </header>
     <main>
       <div id="title-comment">
         <h1>LIVRE D'OR</h1>   

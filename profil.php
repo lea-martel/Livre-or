@@ -14,7 +14,6 @@ session_start();
 <header>
     <?php include("includes/header.php"); ?>
 </header>
-
 <body>
     <main>
         <div id="container-profil">
