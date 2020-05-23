@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,72 +18,55 @@
 <body>
     <main>
         <div id="container-profil">
+          <h1 id="title-profil">VOTRE PROFIL</h1>
+          <h2 class="subtitle-profil"> HELLO @
+            <?php
+               echo $_SESSION['login'];
+            ?>
+          </h2>
+          <h3 class="subtitle-profil">modifier vos informations de connexion</h3> 
             <form id="form-profil" action="profil.php" method="post">
-                <h1 class="toptitre"> MODIFIER LE LOGIN ET MOT DE PASSE </h1><br />
-                <h2 class="titre">MUSEUM OF MARSEILLE </h2><br />
+                <label class="champs-profil">password actuel</label>
+                <input class="cadre-profil" type="password" id="mdp" name="password" placeholder="mot de passe actuel">
 
-                <label class="champs">Nouveau login</label>
-                <input class="cadre" type="texte" id="login" name="login" placeholder="Entrer votre nouveau login">
+                <label class="champs-profil">nouveau login</label>
+                <input class="cadre-profil" type="texte" id="login" name="login" placeholder="nouveau login">
 
-                <label class="champs">Mot de passe actuel</label>
-                <input class="cadre" type="password" id="mdp" name="password_a" placeholder="Entrer le mot de passe">
+                <label class="champs-profil">nouveau password</label>
+                <input class="cadre-profil" type="password" id="mdp" name="password" placeholder="Entrer le nouveau de mot de passe">
 
-                <label class="champs">Nouveau mot de passe </label>
-                <input class="cadre" type="password" id="mdp" name="password_n" placeholder="Entrer le nouveau de mot de passe">
-
-                <label class="champs">Confirmation du nouveau mot de passe </label>
-                <input class="cadre" type="password" id="mdp" name="password_c" placeholder="Confirmation du mot de passe">
+                <label class="champs-profil">confirmer le password</label>
+                <input class="cadre-profil" type="password" id="mdp" name="password-confirm" placeholder="Confirmation du mot de passe">
 
                 <input class="button" type="submit" value="VALIDER" name="submit">
-
-                <div>
-                </form>
-                        <?php session_start();
-
-                        if (isset($_POST['login'])); {
-                            $username = $_POST['login'];
-                        
-                        if (isset($_POST['submit'])); {
-                            $login = $_POST['login'];
-                            $password_a = $_POST['password_a'];
-                            $password_n = $_POST['password_n'];
-                            $password_c = $_POST['password_c'];
-                        
-                            $bdd =  mysqli_connect("localhost", "root", "", "livreor");
-                            $query = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login = '$username' AND login = '$login'");
-                            $rows = mysqli_num_rows($query);
-
-                        if ($login && $password_a && $password_n && $password_c == true) {
-                        if (empty($password_a)) {
-                        
-                        if ($rows ==1) {
-                            $new_password = mysqli_query($bdd, "UPDATE utilisateurs SET login='$password_n' WHERE login='$username'");
-
+            
+                <?php
+                if (isset($_POST['submit'])){
+                    $login =htmlentities(trim($_POST['login']));
+                    $password = htmlentities(trim($_POST['password']));
+                    $repeatpassword = htmlentities(trim($_POST['password-confirm']));
+          
+                    if($login&&$password&&$repeatpassword){
+                        if($password==$repeatpassword){
+          
+                            $connect = mysqli_connect("localhost","root", "","livreor");
+                            $request = "UPDATE utilisateurs SET  login = '$login', password = '$password' WHERE login = '".$_SESSION['login']."'";
+                            mysqli_query($connect, $request);
+          
+                          header('location:connexion.php');
+          
                         }
-                        }
-                       
-                        elseif ($password_n != $password_c) {
-
-                            echo "Mot de passe différent ! ";
-                        }
-
-                        elseif ($password_n == $password_c) {
-
-                            header('location:connexion.php');
-                        }
-                        
-                        else {
-                            
-                            echo "Veuillez saisir votre ancien mot de passe !";
-                        }
-
+                        else echo '<p class="error"> les deux champs doivent être identiques </p>';
+          
                     }
-                    }
-                    }
-                   
-                        ?>
+                    else echo '<p class="error"> veuillez compléter tous les champs </p>';
+                }
+               ?>
+          </form>
+        </div>
     </main>
-    <?php include("includes/footer.php"); ?>
+    <footer>
+      <?php include("includes/footer.php"); ?>
+    </footer>
 </body>
-
 </html>

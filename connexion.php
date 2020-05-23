@@ -10,9 +10,9 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <header>
-      <?php include("includes/header.php")?>
-    </header>
+   <header>
+    <?php include("includes/header.php")?>
+   </header>
     <main>
       <div id="container-connexion">
         <form action="connexion.php" method="POST" id="form-connexion">

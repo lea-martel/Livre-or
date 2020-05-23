@@ -5,6 +5,7 @@ if (isset($_POST["deco"])) {
     session_destroy();
     header('Location:index.php');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -17,28 +18,29 @@ if (isset($_POST["deco"])) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <header>
-      <?php include("includes/header.php")?>
-    </header>
+   <header>
+    <?php include("includes/header.php")?>
+   </header>
     <main>
       <div id="banner-index">
         <div>
-          <figure id="circle"></figure>
+          <figure class="circle" id="circle"></figure>
           <h1 id="title-index">MUSEUM OF MARSEILLE</h1>
         </div>
         <div id="presentation-index">
           <?php
             if(isset($_SESSION['login'])){
+
               echo 'BONJOUR @ '.$_SESSION['login'];
-              echo "<p>Vous êtes actuellement connecté.<br/><a href=\"profil.php\">Accédez à votre profil</a></p>
-                    <a href='commentaire.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a><br/>
+              echo "<p>Vous êtes actuellement connecté.<br/><a href=\"profil.php\"></a></p>
+                    <a href='livre-or.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a><br/>
                     <form action='index.php' method='post'>
                       <input class='reg'  name='deco' value='Déconnexion' type='submit'/>
                     </form>";
             }
             else{ 
               echo "<p id='text-index'>Vous venez de visiter notre musée... rejoignez notre communauté et partagez votre avis sur votre expérience ou une exposition !</p>
-                    <a href='connexion.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a>
+                    <a href='livre-or.php'><h2 id='link-index'>LES COMMENTAIRES</h2></a>
                     <a href='inscription.php' id='link2-index'>Pas encore inscrit ? Cliquez ici</a>";
             }
           ?>
@@ -46,7 +48,7 @@ if (isset($_POST["deco"])) {
       </div>
     </main>
     <footer>
-      <?php include("includes/footer.php")?>
+    <?php include("includes/footer.php")?>
     </footer>
 </body>
 </html>

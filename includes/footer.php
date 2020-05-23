@@ -12,8 +12,8 @@
       <div id="right-col">
         <h6 id="news">Newsletter</h6>
         <div id="border"></div>
-        <form action="" id="newsletter-form">
-          <input type="text" class="txtb" placeholder="Enter your email">
+        <form action="" id="newsletter-form" method="post">
+          <input type="email" nom="email" class="txtb" placeholder="Enter your email">
           <input type="submit" class="btn" value="submit">
         </form>
       </div>
