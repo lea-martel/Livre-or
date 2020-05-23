@@ -43,7 +43,7 @@
         if($login&&$password&&$repeatpassword){
             if($password==$repeatpassword){
 
-              $connect =  mysqli_connect("localhost", "root", "root", "livreor");
+              $connect =  mysqli_connect("localhost", "root", "", "livreor");
               $request = "INSERT INTO utilisateurs (login, password) VALUES ('$login', '$password')";
               $query = mysqli_query ($connect,$request);
 
